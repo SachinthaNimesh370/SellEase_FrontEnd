@@ -4,14 +4,16 @@ import styles from "./Signup.module.css";
 import * as React from "react";
 import MenuItem from "@mui/material/MenuItem";
 import { Box } from "@mui/material";
+import Password from "./Password";
+import ConfirmPassword from "./ConfirmPassword";
 
 const currencies = [
   {
-    value: "USD",
+    value: "admin",
     label: "Admin",
   },
   {
-    value: "EUR",
+    value: "cashier",
     label: "Cashier",
   },
 ];
@@ -19,10 +21,32 @@ const currencies = [
 export default function Signup() {
   return (
     <div className={styles.signupcontainer}>
-      <Box className={styles.box}>
+      <Box className={styles.box1}>
+        <div>
+          <TextField
+            sx={{ m: 1, width: "25ch" }}
+            variant="outlined"
+            id="outlined-select-role"
+            select
+            label="Role"
+            defaultValue=""
+            helperText="Please select your Role"
+          >
+            {currencies.map((option) => (
+              <MenuItem key={option.value} value={option.value}>
+                {option.label}
+              </MenuItem>
+            ))}
+          </TextField>
+        </div>
+      </Box>
+
+      <Box className={styles.box2}>
         <div>
           <div>
             <TextField
+              sx={{ m: 1, width: "25ch" }}
+              variant="outlined"
               id="outlined-email-input"
               label="Name"
               type="Email"
@@ -32,6 +56,8 @@ export default function Signup() {
 
           <div>
             <TextField
+              sx={{ m: 1, width: "25ch" }}
+              variant="outlined"
               id="outlined-email-input"
               label="Email Address"
               type="Email"
@@ -40,40 +66,15 @@ export default function Signup() {
           </div>
 
           <div>
-            <TextField
-              id="outlined-select-role"
-              select
-              label="Role"
-              defaultValue=""
-              helperText="Please select your Role"
-            >
-              {currencies.map((option) => (
-                <MenuItem key={option.value} value={option.value}>
-                  {option.label}
-                </MenuItem>
-              ))}
-            </TextField>
+            <Password />
           </div>
-
           <div>
-            <TextField
-              id="outlined-email-input"
-              label="Password"
-              type="Email"
-              autoComplete="current-password"
-            />
-          </div>
-
-          <div>
-            <TextField
-              id="outlined-password-input"
-              label="Confirm Password"
-              type="password"
-              autoComplete="current-password"
-            />
+            <ConfirmPassword />
           </div>
         </div>
       </Box>
+
+
       <div className={styles.buttoncontainer}>
         <Button className={styles.signupbutton} variant="contained">
           Sign up
