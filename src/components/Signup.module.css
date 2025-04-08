@@ -1,0 +1,22 @@
+.signupcontainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  
+}
+.box1 {
+  background-color: rgba(7, 126, 200, 0.089);
+  border-radius: 5px;
+}
+.box2{
+}
+
+.signupbutton {
+}
+
+.buttoncontainer {
+}
+
+
